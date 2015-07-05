@@ -71,7 +71,7 @@ class WardenOmniAuth
         success! self.class.on_callback[user]
       else
         path_prefix = OmniAuth::Configuration.instance.path_prefix
-        redirect! File.join(path_prefix, self.class.omni_name) + '?origin=' + URI.escape(env['REQUEST_URI'])
+        redirect! File.join(path_prefix, self.class.omni_name) + '?origin=' + URI.escape(env['REQUEST_URI'].to_s)
       end
     end
   end
